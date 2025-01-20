@@ -21,4 +21,4 @@ echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >>feeds.conf.de
 echo 'src-git small https://github.com/kenzok8/small' >>feeds.conf.default
 # Fix Alist build
 rm -rf feeds/packages/lang/golang
-svn export https://github.com/sbwml/packages_lang_golang/tree/23.x feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
