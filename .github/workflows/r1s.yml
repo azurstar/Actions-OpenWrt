@@ -31,7 +31,8 @@ env:
 jobs:
   build:
     runs-on: ubuntu-22.04
-
+    timeout-minutes: 700
+    
     steps:
     - name: Checkout
       uses: actions/checkout@main
