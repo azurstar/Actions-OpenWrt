@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 
-name: Orange Pi R1 Plus
+name: R66S
 
 on:
   repository_dispatch:
