@@ -41,6 +41,24 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 700
 
+    - name: Freeing up disk space
+      uses: easimon/maximize-build-space@master
+      with: 
+        root-reserve-mb: 2048
+        swap-size-mb: 1
+        remove-dotnet: 'true'
+        remove-android: 'true'
+        remove-haskell: 'true'
+        remove-codeql: 'true'
+        remove-docker-images: 'true'
+
+    - name: Free up disk space complete
+      run: |
+        echo "Free up disk space complete"
+        echo "=============================================================================="
+        df -hT
+        echo "=============================================================================="
+
     steps:
     - name: Checkout
       uses: actions/checkout@main
@@ -62,7 +80,6 @@ jobs:
     - name: Clone source code
       working-directory: /workdir
       run: |
-        lsblk
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
