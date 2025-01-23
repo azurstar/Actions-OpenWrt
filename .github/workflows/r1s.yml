@@ -41,6 +41,7 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 700
 
+    steps:
     - name: Freeing up disk space
       uses: easimon/maximize-build-space@master
       with: 
@@ -59,7 +60,6 @@ jobs:
         df -hT
         echo "=============================================================================="
 
-    steps:
     - name: Checkout
       uses: actions/checkout@main
 
