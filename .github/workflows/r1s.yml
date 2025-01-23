@@ -60,12 +60,12 @@ jobs:
         sudo chown $USER:$GROUPS /workdir
 
     - name: Clone source code
-      working-directory: /workdir
+      working-directory: /mnt
       run: |
         lsblk
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
-        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        ln -sf /mnt/openwrt $GITHUB_WORKSPACE/openwrt
 
     - name: Load custom feeds
       run: |
